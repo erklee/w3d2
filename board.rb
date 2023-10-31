@@ -1,21 +1,31 @@
+require_relative "card"
 class Board
-    attr_reader :populate
+
+    attr_reader :grid, :cards
     def initialize
-        @grid = Array.new(4) {Array.new(4, ["_"])}
-        @cards = [[:A , :A], [:B, :B], [:C , :C], [:D, :D], :E, :E, :F, :F , :G, :G, :H, :H]
+        @grid = Array.new(4) {Array.new(4, "_")}
+        pairs = ("a".."h").to_a * 2
+        @cards = pairs.shuffle.map!{|pair| Card.new(pair)}
 
     end
 
     def populate
-        while @grid.flatten.any?("_")
-            row = rand(0..3)
-            col = rand(0..3)
-            @cards.each do |card|
-                @grid[row][col] = card if @grid[row][col] == ("_")
-            
-            end
+        @grid.each_with_index do |rows, i|
+            rows[i].each 
+
         end
     end
+
+    def []
+
+    end
+
+
+    def []=
+
+    end
+
+
 end
-
-
+# a = Board.new
+# p a
