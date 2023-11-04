@@ -1,10 +1,5 @@
 class Card
-    # @@face_value = ("A".."Z").to_a
-
-    # a = Class.new('A')
-    # @value = 'A'
-    # @face_up = 'A'
-    attr_reader :face_down, :value
+    attr_reader :face_down, :face_value
     def initialize (value)
         @face_value = value
         @face_down = true 
@@ -28,3 +23,6 @@ class Card
         return self.face_value == card.face_value
     end
 end
+
+a = Card.new("A")
+p a.face_value

@@ -10,22 +10,21 @@ class Board
     end
 
     def populate
-        @grid.each_with_index do |rows, i|
-            rows[i].each 
+        j = 0
+        @grid.dup.each_with_index do |rows, i|
+            rows.each_with_index do |ele, k|
+                @grid[i][k] = @cards[j] 
+                j += 1
+            end
 
         end
-    end
-
-    def []
-
-    end
-
-
-    def []=
-
+        return true
     end
 
 
 end
-# a = Board.new
-# p a
+
+board = Board.new
+p board.cards
+p board.populate
+p board.grid
